@@ -35,7 +35,7 @@ def insertion(cover, embed):
     it = iter(range(len(cf)))
     ef = open(embed, 'rb')
     
-    for byte in bytes(embed + '\0', 'utf-8'):
+    for byte in bytes(embed.split('/')[-1] + '\0', 'utf-8'):
         for bit in range(7, -1, -1):
             try: idx = next(it)
             except StopIteration: raise RuntimeError('Image size is too small')
